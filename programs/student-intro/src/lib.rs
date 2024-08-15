@@ -1,5 +1,8 @@
 use anchor_lang::prelude::*;
 
+mod constants;
+use constants::*;
+
 declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
 
 #[program]
@@ -102,5 +105,5 @@ pub struct StudentInfo {
 }
 
 impl Space for StudentInfo {
-    const INIT_SPACE: usize = 8 + 32 + 4 + 4 + 1;
+    const INIT_SPACE: usize = ANCHOR_DISCRIMINATOR + PUBKEY_SIZE + STRING_PREFIX_SIZE + STRING_PREFIX_SIZE + BUMP_SIZE;
 }
